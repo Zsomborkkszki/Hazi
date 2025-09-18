@@ -11,7 +11,7 @@ namespace Hazi
     {
         static void Main(string[] args)
         {
-            string[] szavak = { "első", "alma", "vizibicigli", "kukac", "Péter", "" };
+            string[] szavak = { "első", "alma", "vizibicigli", "kukac", "reaktor"};
             Random rnd = new Random();
             string szo = szavak[rnd.Next(szavak.Length)];
             int szohossz = szo.Length;
@@ -24,44 +24,57 @@ namespace Hazi
             {
                 kitalalt[i] = '_';
             }
+            Console.WriteLine("*****AKASZTÓFA*****");
+            Console.ForegroundColor = ConsoleColor.Green;
             do
             {
+            
             Console.WriteLine($"A szó hossza: {szohossz} betű");
-            Console.WriteLine($"Kitalálásra váró betűk {szo2.Length}");
             Console.WriteLine(kitalalt);
             Console.WriteLine("Írj egy betűt:");
             char betu = Convert.ToChar(Console.ReadLine());
                 if (szo2.Contains(betu))
                 {
-                    for (int i = 0; i < szo2.Length; i++)
-                    {
-                        if (szo2[i] == betu)
-                        {
-                            
-                            kitalatszo++;
-                            kitalalt[i] = betu;
-                           
-                        }
-                        
-                    }
-                    szo2=szo2.Replace(betu,'*');
-                    Console.WriteLine("Eltaláltad a betüt.");
+                    Eltalatad(ref kitalatszo, ref szo2, kitalalt, betu);
                 }
                 else
                 {
                     hiba--;
+                    Console.Clear();
+                    Console.WriteLine("*****AKASZTÓFA*****");
                     Console.WriteLine("Nem találtad el.");
                     Console.WriteLine($"Még {hiba} próbálkozásod van");
+                    
                 }
                 if (kitalatszo == szohossz)
                 {
                     Console.Clear();
+                    Console.WriteLine("*****AKASZTÓFA*****");
                     Console.WriteLine("Kitaláltad a szót.");
                     Console.WriteLine($"A szó {szo} volt.");
                     kilepo = true;
                 }
             }
             while (kilepo == false);
+        }
+
+        private static void Eltalatad(ref int kitalatszo, ref string szo2, char[] kitalalt, char betu)
+        {
+            for (int i = 0; i < szo2.Length; i++)
+            {
+                if (szo2[i] == betu)
+                {
+
+                    kitalatszo++;
+                    kitalalt[i] = betu;
+
+                }
+
+            }
+            szo2 = szo2.Replace(betu, '*');
+            Console.Clear();
+            Console.WriteLine("*****AKASZTÓFA*****");
+            Console.WriteLine("Eltaláltad a betüt.");
         }
     }
 }
