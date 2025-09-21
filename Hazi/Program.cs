@@ -24,11 +24,12 @@ namespace Hazi
             {
                 kitalalt[i] = '_';
             }
-            Console.WriteLine("*****AKASZTÓFA*****");
             Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("*****AKASZTÓFA*****");
+            
             do
             {
-            
+            Console.WriteLine($"Még {hiba} próbálkozásod van");
             Console.WriteLine($"A szó hossza: {szohossz} betű");
             Console.WriteLine(kitalalt);
             Console.WriteLine("Írj egy betűt:");
@@ -43,12 +44,12 @@ namespace Hazi
                     Console.Clear();
                     Console.WriteLine("*****AKASZTÓFA*****");
                     Console.WriteLine("Nem találtad el.");
-                    Console.WriteLine($"Még {hiba} próbálkozásod van");
                     
                 }
                 if (kitalatszo == szohossz)
                 {
                     Console.Clear();
+                    Console.Beep();
                     Console.WriteLine("*****AKASZTÓFA*****");
                     Console.WriteLine("Kitaláltad a szót.");
                     Console.WriteLine($"A szó {szo} volt.");
