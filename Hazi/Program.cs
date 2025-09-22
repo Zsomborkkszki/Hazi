@@ -55,6 +55,14 @@ namespace Hazi
                     Console.WriteLine($"A szó {szo} volt.");
                     kilepo = true;
                 }
+                if (hiba == 0)
+                {
+                    Console.Clear();
+                    Console.WriteLine("*****AKASZTÓFA*****");
+                    Console.WriteLine("Vesztettél.");
+                    Console.WriteLine($"A szó {szo} volt.");
+                    kilepo = true;
+                }
             }
             while (kilepo == false);
         }
